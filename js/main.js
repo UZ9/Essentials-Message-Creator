@@ -2,12 +2,13 @@ function copyFormatted() {
 
 
     //Get values from form
-    var version = document.getElementById('mc-version').value;
     var primaryColor = document.getElementById('first-color').value;
     var secondaryColor = document.getElementById('second-color').value;
+    var errorColor = document.getElementById('error-color').value;
     var prefix = translateAlternateColorCodes('&', document.getElementById('prefix_placeholder').value);
     
-    if (version == null || primaryColor == null || secondaryColor == null) {
+    
+    if (errorColor == null || primaryColor == null || secondaryColor == null) {
         M.toast({html: "Some of your values are blank!"});
         return;
     }
@@ -17,11 +18,17 @@ function copyFormatted() {
       
 
 
-      var message = messageArray[i];
-      if (!(message.includes("enabled") || message.includes("disabled") || message.includes("true") || message.includes("false"))) {
-        message.replaceAll("00a76", "00a7" + primaryColor);
-        message.replaceAll("00a7c", "00a7" + secondaryColor);
-        message.replaceAll("=", "= " + prefix + " ");
+      var message = messageArray[i] + "";
+      
+      
+
+      if (message.match("00a74") != null) {
+        message = message.replaceAll("00a76", "01a7" + primaryColor);
+        message = message.replaceAll("00a7c", "01a7" + secondaryColor);
+        message = message.replaceAll("00a74", "01a7" + errorColor);
+        message = message.replaceAll("=", "= " + prefix + " ");
+        //Prevents colors from changing the previous one
+        message = message.replaceAll("01a7", "00a7");
         messageArray[i] = message;
       }
     }
@@ -42,9 +49,8 @@ function copyFormatted() {
 String.prototype.replaceAll = function(search, replacement) {
   var target = this;
 
-  var regResult = new RegExp(search + "(\b(?:(?!enabled)\w)+\b)", 'g');
 
-  regResult.replace
+
 
   return target.replace(new RegExp(search, 'g'), replacement);
 };
@@ -112,6 +118,10 @@ function translateAlternateColorCodes(altColorChar, textToTranslate) {
         }
     }
     return b.join('');
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
 }
 
 
