@@ -12,12 +12,28 @@ function copyFormatted() {
         return;
     }
 
-    var formattedMessage = MESSAGE_EN;
-    formattedMessage = formattedMessage.replaceAll("00a76", "00a7" + primaryColor);
-    formattedMessage = formattedMessage.replaceAll("00a7c", "00a7" + secondaryColor);
-    formattedMessage = formattedMessage.replaceAll("=", "= " + prefix + " ");
+    var messageArray = MESSAGE_EN.split('\n');
+    for (var i = 0; i < messageArray.length; i++) {
+      
 
-    copyToClipboard(formattedMessage);
+
+      var message = messageArray[i];
+      if (!(message.includes("enabled") || message.includes("disabled") || message.includes("true") || message.includes("false"))) {
+        message.replaceAll("00a76", "00a7" + primaryColor);
+        message.replaceAll("00a7c", "00a7" + secondaryColor);
+        message.replaceAll("=", "= " + prefix + " ");
+        messageArray[i] = message;
+      }
+    }
+
+
+
+
+
+    //alert(messageArray);
+
+
+    copyToClipboard(messageArray.join("\n"));
 
     //Display notification copied to clipboard
     M.toast({html: "Copied to clipboard!"});
@@ -25,6 +41,11 @@ function copyFormatted() {
 
 String.prototype.replaceAll = function(search, replacement) {
   var target = this;
+
+  var regResult = new RegExp(search + "(\b(?:(?!enabled)\w)+\b)", 'g');
+
+  regResult.replace
+
   return target.replace(new RegExp(search, 'g'), replacement);
 };
 
