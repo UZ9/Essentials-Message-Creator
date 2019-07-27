@@ -1,10 +1,11 @@
 function copyFormatted() {
+
+
+    //Get values from form
     var version = document.getElementById('mc-version').value;
     var primaryColor = document.getElementById('first-color').value;
     var secondaryColor = document.getElementById('second-color').value;
-    var prefix = document.getElementById('prefix_placeholder').value;
-    
-    
+    var prefix = translateAlternateColorCodes('&', document.getElementById('prefix_placeholder').value);
     
     if (version == null || primaryColor == null || secondaryColor == null || prefix === "") {
         M.toast({html: "Some of your values are blank!"});
@@ -15,21 +16,11 @@ function copyFormatted() {
     formattedMessage = formattedMessage.replaceAll("00a76", "00a7" + primaryColor);
     formattedMessage = formattedMessage.replaceAll("00a7c", secondaryColor);
     formattedMessage = formattedMessage.replaceAll("=", "= " + prefix + " ");
-    //formattedMessage = formattedMessage.replace(/(?:\r\n|\r|\n)/g, '<br>');
-
-
-    
-
-
 
     copyToClipboard(formattedMessage);
 
-
-
-
     //Display notification copied to clipboard
     M.toast({html: "Copied to clipboard!"});
-    //document.getElementById('generate-message').innerHTML = "Copied!";
 }
 
 String.prototype.replaceAll = function(search, replacement) {
@@ -58,7 +49,6 @@ const copyToClipboard = (function initClipboardText() {
         document.getSelection().getRangeAt(0) : false;
   
       // iOS Safari blocks programmtic execCommand copying normally, without this hack.
-      // https://stackoverflow.com/questions/34045777/copy-to-clipboard-using-javascript-in-ios
       if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
         const editable = textarea.contentEditable;
         textarea.contentEditable = true;
@@ -89,6 +79,19 @@ const copyToClipboard = (function initClipboardText() {
       }
     };
   })();
+
+
+//Modified from original ChatColor.translateAlternateColorCodes
+function translateAlternateColorCodes(altColorChar, textToTranslate) {
+    var b = [...textToTranslate];
+    for (var i = 0; i < b.length - 1; i++) {
+        if (b[i] == altColorChar && "0123456789AaBbCcDdEeFfKkLlMmNnOoRr".indexOf(b[i+1]) > -1) {
+            b[i] = '\\u00a7';
+            b[i+1] = b[i+1].toLowerCase();
+        }
+    }
+    return b.join('');
+}
 
 
 
