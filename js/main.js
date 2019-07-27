@@ -7,14 +7,14 @@ function copyFormatted() {
     var secondaryColor = document.getElementById('second-color').value;
     var prefix = translateAlternateColorCodes('&', document.getElementById('prefix_placeholder').value);
     
-    if (version == null || primaryColor == null || secondaryColor == null || prefix === "") {
+    if (version == null || primaryColor == null || secondaryColor == null) {
         M.toast({html: "Some of your values are blank!"});
         return;
     }
 
     var formattedMessage = MESSAGE_EN;
     formattedMessage = formattedMessage.replaceAll("00a76", "00a7" + primaryColor);
-    formattedMessage = formattedMessage.replaceAll("00a7c", secondaryColor);
+    formattedMessage = formattedMessage.replaceAll("00a7c", "00a7" + secondaryColor);
     formattedMessage = formattedMessage.replaceAll("=", "= " + prefix + " ");
 
     copyToClipboard(formattedMessage);
