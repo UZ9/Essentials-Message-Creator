@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--Please have mercy I'm not a web developer-->
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Essentials Message Generator</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<style>
+
+html {
+  scroll-behavior: smooth;
+ }
+ 
+ a {
+  text-decoration: none;
+  color: black;
+ } 
+ 
+ #generator {
+     align-content:center;
+ } 
+
+</style>
+
+<body>
+  <nav class="red lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Yerti's Tools</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Source</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Source</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center grey-text">Essentials Message Generator</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">A completely free and configurable essentials message generator</h5>
+      </div>
+      <div class="row center">
+        <a href="#generator" id="download-button" class="btn-large waves-effect waves-light red">Get Started</a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+  <div class="parallax-container">
+        <div class="parallax"><img src="images/backgroundimage.png"></div>
+  </div>
+
+
+  <div id="generator" class="generator">
+        <div class="container">
+                <div id="content1" class="section">
+                    <h3>Essentials Message Generator</h4>
+                    <br>
+                    <div class="row">
+                        <div class="col s4 mod-choice" id="choose-mc">
+                            <i class="material-icons red-text">filter_1</i>
+                            <h5>Minecraft Version</h5>
+                            <div class="input-field">
+                                <select id="mc-version" autocomplete="off">
+                                    <option value="" disabled selected>Please select</option>
+                                    <option value="1.8.8">1.8.8</option>                  </select>
+                            </div>
+                        </div>
+                        <div class="col s4 mod-choice" id="choose-first-color">
+                            <i class="material-icons red-text">filter_2</i>
+                            <h5>Primary Color</h5>
+                            <div class="input-field">
+                                <select id="first-color" autocomplete="off">
+                                    <option value="" disabled selected>Please Select</option>
+                                    <option value="4">Dark Red</option>
+                                    <option value="c">Red</option>
+                                    <option value="6">Gold</option>
+                                    <option value="e">Yellow</option>
+                                    <option value="2">Dark Green</option>
+                                    <option value="a">Green</option>
+                                    <option value="b">Aqua</option>
+                                    <option value="3">Dark Aqua</option>
+                                    <option value="1">Dark Blue</option>
+                                    <option value="9">Blue</option>
+                                    <option value="d">Light Purple</option>
+                                    <option value="5">Dark Purple</option>
+                                    <option value="f">White</option>
+                                    <option value="3">Gray</option>
+                                    <option value="8">Dark Gray</option>
+                                    <option value="0">Black</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col s4 mod-choice" id="choose-second-color">
+                            <i class="material-icons red-text">filter_3</i>
+                            <h5>Secondary Color</h5>
+                            <div class="input-field">
+                                <select id="second-color" autocomplete="off">
+                                        <option value="" disabled selected>Please Select</option>
+                                        <option value="4">Dark Red</option>
+                                        <option value="c">Red</option>
+                                        <option value="6">Gold</option>
+                                        <option value="e">Yellow</option>
+                                        <option value="2">Dark Green</option>
+                                        <option value="a">Green</option>
+                                        <option value="b">Aqua</option>
+                                        <option value="3">Dark Aqua</option>
+                                        <option value="1">Dark Blue</option>
+                                        <option value="9">Blue</option>
+                                        <option value="d">Light Purple</option>
+                                        <option value="5">Dark Purple</option>
+                                        <option value="f">White</option>
+                                        <option value="3">Gray</option>
+                                        <option value="8">Dark Gray</option>
+                                        <option value="0">Black</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+
+
+                    
+
+                    <div class="row center">
+                            <form class="row center">
+                                <div>
+                                <div class="input-field col s12 row center">
+                                    <input placeholder="Placeholder" id="prefix_placeholder" type="text" class="validate">
+                                    <label for="prefix">Prefix (Supports & color codes)</label>
+                                </div>
+                                </div>
+                            </form>
+                    </div>
+
+                            
+                            
+
+                        
+                    </div>
+            </div>
+
+
+  </div>
+
+  
+
+  <div class="row center">
+        
+        <a id="generate-message"  onclick="javascript:copyFormatted()" class="btn-large waves-effect waves-light red">Generate Message</a>
+  </div>
+
+  <div class="parallax-container">
+        <div class="parallax"><img src="images/backgroundimage2.png"></div>
+  </div>
+
+  <div id="generator" class="generator">
+    <div class="container">
+            <div id="content1" class="section">
+                <h2>FAQ</h4>
+                <br>
+                <h3 class="red-text">Okay, how do I use this?</h4>
+                <h5>After you have clicked Generate Message, the website will automatically copy the contents of the lang file. Inside of your Essentials folder for your server, make a new file and label it 'messages_(locale).properties', where locale would be the abbreviation for your language. For English, this would be 'messages_en.properties'. Paste your clipboard inside of the file, and reload your essentials.</h5>
+                <br>
+                <h3 class="red-text">Does this support multiple languages?</h3>
+                <h5>While I am unaware of if this works with languages such as Chinese, the generator should work with Spanish and other languages with similar characters to English.</h5>
+                <h3 class="red-text">TODO List</h5>
+                <h5>- Add customization to specific parts (economy, punishments, etc.)</h5>
+                <h5>- Add more versions</h5>
+                </div>
+        </div>
+
+
+  </div>
+
+  <footer class="page-footer red">
+    <div class="footer-copyright">
+      <div class="container">
+      <h5>Made by Yerti</h5>
+      You can contact me on discord: <a class="red-text text-lighten-3">Yerti#4849</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="output">
+
+  </div>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script src="js/configdefaults.js"></script>
+
+  <script>
+  $(document).ready(function(){
+    M.AutoInit();
+  });
+
+
+        
+  
+  </script>
+
+  </body>
+</html>
