@@ -23,13 +23,18 @@ function copyFormatted() {
       
 
       if (message.match("00a74") != null) {
-        message = message.replaceAll("00a76", "01a7" + primaryColor);
-        message = message.replaceAll("00a7c", "01a7" + secondaryColor);
-        message = message.replaceAll("00a74", "01a7" + errorColor);
-        message = message.replaceAll("=", "= " + prefix + " ");
-        //Prevents colors from changing the previous one
-        message = message.replaceAll("01a7", "00a7");
-        messageArray[i] = message;
+        //Bed bug fix (no pun intended)
+        //TODO: Make array of blacklisted words
+        if (!message.includes("bed")) {
+          message = message.replaceAll("00a76", "01a7" + primaryColor);
+          message = message.replaceAll("00a7c", "01a7" + secondaryColor);
+          message = message.replaceAll("00a74", "01a7" + errorColor);
+          message = message.replaceAll("=", "= " + prefix + " ");
+          //Prevents colors from changing the previous one
+          message = message.replaceAll("01a7", "00a7");
+          messageArray[i] = message;
+        }
+
       }
     }
 
